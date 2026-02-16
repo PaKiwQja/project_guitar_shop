@@ -1,0 +1,369 @@
+/* =====================================================
+   GLOBAL LAYOUT
+===================================================== */
+
+*{
+    box-sizing: border-box;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+    font-family:'Prompt',sans-serif;
+    background:#f8f9fa;
+    display:flex;
+    flex-direction:column;
+    margin:0;
+}
+
+main{
+    flex:1;
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+    position:relative;
+    background:#fff;
+}
+
+.logo-img{
+    height:60px;
+    transition:.3s;
+}
+
+.navbar-brand{
+    font-weight:700;
+}
+
+.navbar-brand:hover .logo-img{
+    transform:scale(1.05);
+}
+
+
+/* ================= SEARCH ================= */
+
+.search-box{
+    position:relative;
+    width:100%;
+    max-width:600px;
+}
+
+.search-input{
+    width:100%;
+    height:44px;
+    border-radius:50px;
+    padding-left:60px;   /* เพิ่มระยะกันชน */
+    padding-right:20px;
+    background:#f1f3f5;
+    border:none;
+    outline:none;
+    font-size:14px;
+    line-height:44px;
+}
+
+.search-input::placeholder{
+    color:#888;
+}
+
+.search-input:focus{
+    background:#fff;
+    box-shadow:0 0 0 2px rgba(0,0,0,.05);
+}
+
+.search-icon{
+    position:absolute;
+    top:50%;
+    left:20px;          /* ขยับออกมาอีก */
+    transform:translateY(-50%);
+    color:#888;
+    font-size:16px;
+    pointer-events:none;
+}
+
+
+
+/* ================= LIVE SEARCH ================= */
+
+.search-result-box{
+    position:absolute;
+    top:50px;
+    left:0;
+    width:100%;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+    max-height:350px;
+    overflow-y:auto;
+    display:none;
+    z-index:9999;
+}
+
+.search-item{
+    padding:12px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.search-item:hover{
+    background:#f5f5f5;
+}
+
+.search-item img{
+    width:45px;
+    height:45px;
+    object-fit:cover;
+    border-radius:8px;
+}
+
+.search-price{
+    font-weight:600;
+    font-size:14px;
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero{
+    background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+               url('https://images.unsplash.com/photo-1510915361894-db8b60106cb1');
+    background-size:cover;
+    background-position:center;
+    color:#fff;
+    padding:120px 0;
+}
+
+
+/* =====================================================
+   PRODUCT & BRAND
+===================================================== */
+
+.section-title{
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.product-card{
+    border:none;
+    transition:.3s;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.price{
+    color:#dc3545;
+    font-weight:600;
+}
+
+.brand-card{
+    background:#fff;
+    border-radius:15px;
+    transition:.3s;
+    box-shadow:0 4px 15px rgba(0,0,0,.05);
+}
+
+.brand-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.brand-name{
+    font-weight:500;
+}
+
+
+/* =====================================================
+   LOGIN PAGE
+===================================================== */
+
+.login-wrapper{
+    min-height:calc(100vh - 120px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 15px;
+}
+
+.login-card{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:12px;
+    padding:40px 35px;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+}
+
+.login-title{
+    text-align:center;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+.form-control{
+    border-radius:8px;
+    padding:10px 12px;
+}
+
+.login-btn{
+    border-radius:8px;
+    padding:10px;
+    font-weight:500;
+}
+
+
+/* =====================================================
+   PROFILE PAGE
+===================================================== */
+
+.profile-sidebar{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+}
+
+.profile-link{
+    display:block;
+    padding:10px 0;
+    color:#333;
+    text-decoration:none;
+    border-bottom:1px solid #eee;
+    transition:.2s;
+}
+
+.profile-link:hover{
+    color:#000;
+}
+
+.profile-link.active{
+    font-weight:600;
+    color:#000;
+}
+
+.profile-content{
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+}
+
+.profile-card{
+    background:#f8f9fa;
+    padding:20px;
+    border-radius:12px;
+}
+
+
+/* =====================================================
+   ORDER HISTORY
+===================================================== */
+
+.order-tabs{
+    display:flex;
+    gap:30px;
+    margin-bottom:40px;
+    border-bottom:1px solid #eee;
+    padding-bottom:10px;
+    flex-wrap:wrap;
+}
+
+.order-tabs a{
+    text-decoration:none;
+    color:#555;
+    font-weight:500;
+    padding-bottom:8px;
+    position:relative;
+}
+
+.order-tabs a:hover{
+    color:#000;
+}
+
+.order-tabs a.active{
+    color:#0d6efd;
+}
+
+.order-tabs a.active::after{
+    content:"";
+    position:absolute;
+    bottom:-11px;
+    left:0;
+    width:100%;
+    height:2px;
+    background:#0d6efd;
+}
+
+.empty-order{
+    text-align:center;
+    padding:80px 0;
+    color:#777;
+}
+
+.empty-order i{
+    font-size:70px;
+    color:#ddd;
+    margin-bottom:20px;
+}
+
+.empty-order a{
+    text-decoration:none;
+    font-weight:500;
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer{
+    background:#212529;
+    color:#fff;
+    text-align:center;
+    padding:15px 0;
+    margin-top:auto;
+}
+
+/* ===== SEARCH CENTER TRUE CENTER ===== */
+
+.navbar{
+    position:relative;
+}
+
+.search-center{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    width:100%;
+    max-width:600px;
+}
+
+.search-input{
+    width:100%;
+    height:44px;
+    border-radius:50px;
+    border:none;
+    background:#f1f3f5;
+    padding-left:45px;
+    padding-right:20px;
+    outline:none;
+}
+
+.search-icon{
+    position:absolute;
+    left:18px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#888;
+}
