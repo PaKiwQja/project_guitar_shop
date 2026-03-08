@@ -367,3 +367,23 @@ main{
     transform:translateY(-50%);
     color:#888;
 }
+
+/* ===== CART NUMBER SIMPLE STYLE ===== */
+
+.cart-wrapper{
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #0d6efd;
+}
+
+.cart-wrapper:hover{
+    color: #0a58ca;
+}
+
+.cart-count{
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+}

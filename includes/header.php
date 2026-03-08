@@ -3,6 +3,14 @@ if(session_status() === PHP_SESSION_NONE){
     session_start();
 }
 
+/* =========================
+   CART COUNT FIX
+========================= */
+$cart_count = 0;
+if(isset($_SESSION['cart'])){
+    $cart_count = array_sum($_SESSION['cart']);
+}
+
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
@@ -35,18 +43,26 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
       <?php if(isset($_SESSION['user_id'])){ ?>
 
-        <a href="cart.php" class="icon-btn">
-          <i class="bi bi-bag"></i>
+        <!-- CART -->
+        <a href="cart.php" class="cart-wrapper text-decoration-none">
+            <i class="bi bi-bag fs-5"></i>
+
+            <?php if($cart_count > 0): ?>
+                <span class="cart-count">
+                    <?= $cart_count ?>
+                </span>
+            <?php endif; ?>
         </a>
 
-        <a href="profile.php" class="icon-btn">
-          <i class="bi bi-person"></i>
+        <!-- PROFILE -->
+        <a href="profile.php" class="icon-btn text-decoration-none">
+          <i class="bi bi-person fs-5"></i>
         </a>
 
       <?php } else { ?>
 
-        <a href="login.php" class="icon-btn">
-          <i class="bi bi-person"></i>
+        <a href="login.php" class="icon-btn text-decoration-none">
+          <i class="bi bi-person fs-5"></i>
         </a>
 
       <?php } ?>
@@ -55,12 +71,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
   </div>
 
-
-  <!-- ✅ SEARCH CENTER ABSOLUTE -->
+  <!-- SEARCH CENTER -->
   <?php if(!in_array($current_page, ['login.php','register.php'])){ ?>
 
   <div class="search-center">
-
       <form method="GET" action="shop.php" class="position-relative">
 
           <i class="bi bi-search search-icon"></i>
@@ -74,10 +88,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
           <div id="searchResult" class="search-result-box"></div>
 
       </form>
-
   </div>
 
   <?php } ?>
 
 </nav>
-

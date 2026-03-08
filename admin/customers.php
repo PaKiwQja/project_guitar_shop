@@ -89,6 +89,9 @@ body{font-family:'Kanit',sans-serif;background:#f4f7f6;}
 <a href="products.php" class="nav-link">
 <i class="bi bi-box-seam"></i>จัดการสินค้า
 </a>
+<a href="categories.php" class="nav-link">
+<i class="bi bi-tags"></i> จัดการประเภทสินค้า
+</a>
 <a href="orders.php" class="nav-link">
 <i class="bi bi-cart3"></i>จัดการออเดอร์
 </a>
